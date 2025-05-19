@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - BAYANICARE</title>
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      background-image: url('../IMAGES/Sumpong_Barangay_Hall.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 50px auto;
+            background: linear-gradient(to bottom, rgba(0,0,50,0.8), rgba(0,123,255,0.9));
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .seal {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 20px auto;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="title">Edit Profile</h1>
+            <img src="../IMAGES/MALAYBALAY-removebg-preview.png" alt="Seal" class="seal">
+        </div>
+
+        <!-- Edit Profile Section -->
+        <div class="text-center">
+            <div class="avatar" style="background-image: url('../IMAGES/user-avatar.jpg');"></div>
+            <p class="text-white">Click the avatar to change profile picture</p>
+        </div>
+
+        <!-- Profile Form -->
+        <form action="update_profile.html" method="POST">
+            <div class="form-group">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required />
+            </div>
+
+            <div class="form-group">
+                <label for="contactNumber" class="form-label">Contact Number</label>
+                <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required />
+            </div>
+
+            <div class="form-group">
+                <label for="barangayId" class="form-label">Barangay ID (Optional)</label>
+                <input type="text" class="form-control" id="barangayId" name="barangayId" placeholder="Enter your Barangay ID (if available)" />
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">New Password (Leave blank to keep current)</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter new password" />
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password" />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p><a href="dashboard.html" class="text-white">Back to Dashboard</a></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BAYANICARE - Official Dashboard</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Same styles as resident dashboard */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      background-image: url('../IMAGES/Sumpong_Barangay_Hall.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .app-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: linear-gradient(to bottom, rgba(0,0,50,0.8), rgba(0,123,255,0.9));
+      border-radius: 20px;
+      padding: 30px;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .title {
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    .seal {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      background-color: #ccc;
+      border-radius: 50%;
+    }
+
+    .user-details {
+      flex: 1;
+      margin-left: 20px;
+      font-size: 28px;
+    }
+
+    .phone {
+      font-size: 16px;
+      color: #d0e6ff;
+    }
+
+    .icons {
+      display: flex;
+      gap: 20px;
+      font-size: 36px;
+      color: white;
+    }
+
+    .menu-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+
+    .menu-item {
+      background: #e5ecff;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #003366;
+      transition: background 0.3s ease;
+    }
+
+    .menu-item:hover {
+      background-color: #d6e0ff;
+    }
+
+    .menu-item i {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #004aad;
+    }
+
+    .announcements h2 {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .announcement-box {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .announcement-box h3 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .announcement-box p {
+      font-size: 15px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="app-container">
+    <div class="header">
+      <h1 class="title">BAYANICARE</h1>
+      <img src="../IMAGES/MALAYBALAY-removebg-preview.png" alt="Seal" class="seal">
+    </div>
+
+    <div class="user-info">
+      <div class="avatar"></div>
+      <div class="user-details">
+        <p>Welcome, Barangay Official</p>
+        <p class="phone">+639********</p>
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell" onclick="window.location.href='official_notifications.html'" style="cursor: pointer;" title="Notifications"></i>
+        <i class="fas fa-home" onclick="window.location.href='dashboard_official.html'" style="cursor: pointer;" title="Dashboard"></i>
+        <i class="fas fa-bars" onclick="window.location.href='settings_official.html'" style="cursor: pointer;" title="Settings"></i>
+      </div>
+    </div>
+
+    <div class="menu-buttons">
+      <a href="view_requests.html" class="menu-item">
+        <i class="fas fa-file-alt"></i>
+        <span>View Requests</span>
+      </a>
+      <a href="view_complaints.html" class="menu-item">
+        <i class="fas fa-comments"></i>
+        <span>View Complaints</span>
+      </a>
+      <a href="view_appointments.html" class="menu-item">
+        <i class="fas fa-calendar-check"></i>
+        <span>View Appointments</span>
+      </a>
+    </div>
+
+    <div class="announcements">
+      <h2>Barangay Updates</h2>
+      <div class="announcement-box">
+        <h3>Resident Feedback Summary</h3>
+        <p>Check all recently submitted complaints, requests, and appointments to take appropriate action.</p>
+      </div>
+      <div class="announcement-box">
+        <h3>Weekly Report Due</h3>
+        <p>Compile all service and incident reports submitted by residents by Friday 5 PM.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Service - BAYANICARE</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      min-height: 100vh;
+      background-image: url('../IMAGES/Sumpong_Barangay_Hall.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('../IMAGES/Sumpong_Barangay_Hall.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.6; 
+      z-index: -1;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 1000px;
+      min-height: 650px;
+      background: linear-gradient(to bottom, rgba(0,0,50,0.8), rgba(0,123,255,0.9));
+      border-radius: 20px;
+      padding: 40px;
+      color: white;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+      margin: 40px auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .seal {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      background-color: #ccc;
+      border-radius: 50%;
+    }
+
+    .user-info {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .user-details {
+      flex: 1;
+      margin-left: 20px;
+      font-size: 24px;
+    }
+
+    .phone {
+      font-size: 14px;
+      color: #d0e6ff;
+    }
+
+    .icons {
+      display: flex;
+      gap: 15px;
+      color: white;
+      font-size: 30px;
+    }
+
+    .request-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      color: #003366;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .request-card h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .form-select,
+    .form-control,
+    .form-control[type="file"] {
+      margin-bottom: 25px;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-submit {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 12px 40px;
+      border-radius: 30px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #0056b3;
+    }
+
+    .alert {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .app-container {
+        padding: 20px;
+      }
+
+      .title {
+        font-size: 36px;
+      }
+
+      .user-details {
+        font-size: 18px;
+      }
+
+      .btn-submit {
+        padding: 10px 25px;
+        font-size: 14px;
+      }
+
+      .form-select,
+      .form-control {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <h1 class="title">BAYANICARE</h1>
+      <img src="../IMAGES/MALAYBALAY-removebg-preview.png" alt="Seal" class="seal">
+    </div>
+
+    <div class="user-info">
+      <div class="avatar"></div>
+      <div class="user-details">
+        <p>Hi, User</p>
+        <p class="phone">+639171321532</p>
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell" onclick="window.location.href='notification.html'" style="cursor: pointer;" title="Notifications"></i>
+        <i class="fas fa-home" onclick="window.location.href='dashboard.html'" style="cursor: pointer;" title="Dashboard"></i>
+        <i class="fas fa-bars" onclick="window.location.href='settings.html'" style="cursor: pointer;" title="Settings"></i>
+      </div>
+    </div>
+
+    <div class="request-card">
+      <h2>Request Service</h2>
+      <p>Select Service Type</p>
+      <select class="form-select text-center" id="serviceType">
+        <option selected disabled>Select</option>
+        <option value="clearance">Clearance</option>
+        <option value="permit">Permit</option>
+        <option value="certificate">Certificate</option>
+      </select>
+
+      <p>Describe your request</p>
+      <textarea class="form-control" rows="4" id="serviceDescription" placeholder="Enter service details..."></textarea>
+
+      <p>Attach supporting document (if any)</p>
+      <input type="file" class="form-control" id="supportingDoc">
+
+      <p>Preferred Date</p>
+      <input type="date" class="form-control" id="preferredDate">
+
+      <button class="btn btn-submit mt-3" onclick="sendRequest()">Submit</button>
+    </div>
+
+    <div id="notification"></div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function sendRequest() {
+      const serviceType = document.getElementById("serviceType").value;
+      const description = document.getElementById("serviceDescription").value.trim();
+      const preferredDate = document.getElementById("preferredDate").value;
+      const notification = document.getElementById("notification");
+
+      if (!serviceType || serviceType === "Select") {
+        notification.innerHTML = `
+          <div class="alert alert-warning text-center" role="alert">
+            Please select a service type.
+          </div>
+        `;
+      } else if (!description || !preferredDate) {
+        notification.innerHTML = `
+          <div class="alert alert-warning text-center" role="alert">
+            Please complete all required fields.
+          </div>
+        `;
+      } else {
+        notification.innerHTML = `
+          <div class="alert alert-success text-center" role="alert">
+            Your service request has been submitted successfully!
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

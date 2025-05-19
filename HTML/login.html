@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+    <meta charset="UTF-8">
+    <style>
+        .card {
+            width: 450px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,50,0.8), rgba(0,123,255,0.9));
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 120px;
+            margin-top: 100px;
+        }
+
+        input, select, button {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .background img {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src="../IMAGES/Sumpong_Barangay_Hall.jpg" alt="Background Image">
+    </div>
+
+    <div class="Container">
+        <div class="card">
+            <img src="../IMAGES/MALAYBALAY-removebg-preview.png" alt="Logo">
+            <h2>BAYANICARE</h2>
+
+            <form onsubmit="return redirectUser()">
+                <input type="text" placeholder="Username" name="Username" required>
+                <input type="password" placeholder="Password" name="Password" required>
+
+                <select id="userType" required>
+                    <option value="">Select User Type</option>
+                    <option value="resident">Resident</option>
+                    <option value="official">Barangay Official</option>
+                </select>
+
+                <button type="submit">Login</button>
+
+                <p style="color: black;">Don't have an account? <a href="signup.html">Signup</a></p> 
+                <p style="color: black;">Forgot Password? <a href="forgotpassword.html">Click Here!</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function redirectUser() {
+            const userType = document.getElementById("userType").value;
+
+            if (userType === "resident") {
+                window.location.href = "dashboard.html";
+            } else if (userType === "official") {
+                window.location.href = "dashboard_official.html";
+            } else {
+                alert("Please select a user type.");
+                return false;
+            }
+
+            return false; // Prevent default form submission
+        }
+    </script>
+</body>
+</html>
