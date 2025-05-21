@@ -103,3 +103,51 @@ ________________________________________________________________________________
 •	Google Fonts / Icons – May be used to improve visual design.
 
 •	Email/Notification System – PHP's mail() function or SMTP libraries might be used for sending alerts and confirmations (as notifications are included in the features).
+
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+
+    Installation Requirements
+
+•    [XAMPP](https://www.apachefriends.org/) (or any alternative with Apache, MySQL, and PHP support)  
+
+•    Modern Web Browser  
+
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+    System Installation / Setup
+
+1. Open your *XAMPP Control Panel* and start *Apache* and *MySQL*.
+2. Extract the downloaded source code .zip file.
+3. Copy the extracted folder and paste it into the htdocs directory inside your XAMPP installation.
+4. Open a browser and go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+5. Create a new database named quicksched_db.
+6. Import the provided SQL file (bayanicare_db.sql) located at the root of the project directory.
+7. Access the system via the following URLs:
+   - *Resident*: [http://localhost/FINAL/dashboard](http://localhost/FINAL/dashboard.php)
+   - *Secretary*: [http://localhost/FINAL/secretary_dashboard](http://localhost/FINAL/secretary_dashboard.php)
+   - *Admin-side*: [http://localhost/FINAL/captain_dashboard](http://localhost/FINAL/captain_dashboard.php)
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+    User Access Credentials
+
+| Role    | Email                         | Password     |
+|---------|-------------------------------|--------------|
+| resident| quimbo.iancarlo@gmail.com     | 123          |
+| Doctor  | yansem2522@gmail.com          | 123          |
+| Admin   | ian.quimbo2004@gmail.com      | 123          |
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+    Developers
+
+- *Ian Carlo Quimbo*  
+- *Daniela Micah Edullantes*  
+- *Christianjhon Gallogo*
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+© 2025 BAYANICARE. All rights reserved.
